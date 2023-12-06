@@ -1,0 +1,29 @@
+class Solution:
+    def totalMoney(self, n: int) -> int:
+        # Initiating Sum as 0
+        sum = 0
+        if n < 7 :
+            up = n + 1
+            for i in range(1,up):
+                sum += i
+            return sum
+        if n > 7 : 
+            # Dividing floor weeks
+            repetition = n // 7 
+            # Remaining days after week division.
+            add_on = n % 7 
+
+            # Summing for weeks money
+            for i in range(1,(repetition + 1)): 
+                k = i
+                for j in range(1,8): 
+                    sum += k 
+                    k = k + 1 
+                k = repetition + 1
+
+            # Summing for remaining days money.
+            for i in range(1,(add_on + 1)):
+                sum += k
+                k = k + 1
+            return sum
+        
